@@ -82,27 +82,6 @@ Test results are nested and the result values of **statusRating**, and **statusT
 
 Implementations will generally include custom elements and attributes that represent more detail specific to a particular service.
 
-### localSystem
-The following values SHOULD be included to provide details about the current state of the local system.
-
-|Name|Type|Example|Description|
-|:---|:---|:------|:----------|
-|**systemCpuLoad**|double|0.0047811|The recent CPU usage for the server.  This is a value from 0.0 to 1.0, where 0.1 represents 10% utilization.|
-|**totalPhysicalMemory**|long|2097680384|The total amount of physical memory in bytes.|
-|**freePhysicalMemory**|long|80748544|The amount of free physical memory in bytes.|
-|**volumes**|object array||An array of objects that represent information for each disk volume. MUST include the **statusRating**, and **statusText** attributes|
-|**volumes[].totalSpace**|long|31562334208|The total space available on this volume in bytes.|
-|**volumes[].freeSpace**|long|19275190272|The free space available on this volume in bytes.|
-|**volumes[].percentFree**|double|61.07023|The percentage of free space available on this volume. As this value falls below certain defined thresholds the **statusRating** SHOULD  reflect a **Warning** then **Failed**|
-
-The following values are RECOMMENDED for inclusion when the application or component is running within the JVM.
-
-|Name|Type|Example|Description|
-|:---|:---|:------|:----------|
-|**jvmTotalMemory**|long|364449792|The total amount of memory in the Java virtual machine in bytes.|
-|**jvmFreeMemory**|long|142246784|The amount of free memory in the Java virtual machine in bytes.|
-|**jvmMaxMemory**|long|528154624|The maximum amount of memory that the Java virtual machine will attempt to use in bytes.|
-
 # Level 0 Diagnostic: Ping
 
 A level zero diagnostic is simply a "ping" to indicate that the server code is operational and communicating. The server should return a simple response and not perform any additional diagnostics.  If no level value is provided the server SHOULD default to a Level 0 response.
